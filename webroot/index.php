@@ -10,8 +10,8 @@
     <!-- JS-->
 <!--    <script src="arrays.js" type="text/javascript"></script>-->
 <!--    <script src="loops.js" type="text/javascript"></script>-->
-<!--    <script src="/../node_modules/jquery/dist/jquery.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
 </head>
 <body>
 <div class="container">
@@ -65,10 +65,10 @@
 //        });
 //    });
 
-//    $(function () {
-//        $(".slider .slide1").hide();
-//        $(".slider .slide2").css({opacity:"0.5"});
-//    });
+    $(function () {
+        $(".slider .slide1").hide();
+        $(".slider .slide2").css({opacity:"0.5"});
+    });
 
 </script>
 
