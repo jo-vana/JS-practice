@@ -17,24 +17,31 @@
 <div class="container">
     <h1>This is my JS practice project</h1>
     <div class="slider">
+        <div class="buttons">
+            <button data-img-id="img1" class="button-link">Button1</button>
+            <button data-img-id="img2" class="button-link">Button2</button>
+            <button data-img-id="img3" class="button-link">Button3</button>
+            <button data-img-id="img4" class="button-link">Button4</button>
+            <button data-img-id="img5" class="button-link">Button5</button>
+        </div>
         <ul class="slides">
-            <li class="slide1">
+            <li id="slide1" class="content">
                 <img src="slides/slide1.jpg" />
                 <p>Winter slide1</p>
             </li>
-            <li class="slide2">
+            <li id="slide2" class="content">
                 <img src="slides/slide2.jpg" />
                 <p>Winter slide2</p>
             </li>
-            <li>
+            <li id="slide3" class="content">
                 <img src="slides/slide3.jpg" />
                 <p>Winter slide3</p>
             </li>
-            <li>
+            <li id="slide4" class="content">
                 <img src="slides/slide4.jpg" />
                 <p>Winter slide4</p>
             </li>
-            <li>
+            <li id="slide5" class="content">
                 <img src="slides/slide5.jpg" />
                 <p>Winter slide5</p>
             </li>
@@ -65,12 +72,45 @@
 //        });
 //    });
 
-    $(function () {
-        $(".slider .slide1").hide();
-        $(".slider .slide2").css({opacity:"0.5"});
+//    $(function () {
+//        $(".slider .slide1").hide();
+//        $(".slider .slide2").css({opacity:"0.5"});
+//    });
+//Lesson 2......................
+    $ (function () {
+//       $(".button-link").on("click", function () {
+//          $("#slide1").toggle();
+//       });
+        var content = "My new awesome content.";
+
+        $(".button-link").on("click", function () {
+            var buttonId = $(this).attr("data-img-id");
+            $('#' + buttonId).toggle();//not working!!!
+            $('#'+buttonId+'.content').html(content);//not working!!!
+//            alert(buttonId);
+//            $("#slide1").toggle();
+
+        });
+//        $("#button2").on("click", function () {
+//            $("#slide2").toggle();
+//        });
+//        $("#button3").on("click", function () {
+//            $("#slide3").toggle();
+//        });
+//        $("#button4").on("click", function () {
+//            $("#slide4").toggle();
+//        });
+//        $("#button5").on("click", function () {
+//            $("#slide5").toggle();
+//        });
+
     });
 
+    //DOM Document Object Module______________________
+
+
 </script>
+
 
 
 </body>
