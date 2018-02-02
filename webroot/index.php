@@ -107,30 +107,119 @@
 //    });
 </script>
 <!--Lesson 3....DOM Document Object Module Traversal with JQ________-->
-<ul class="list">
-    <li>one</li>
-    <li class="special">two</li>
-    <li>three</li>
-    <li>
-        <ul class="sublist">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    </li>
-</ul>
+<!--<ul class="list">-->
+<!--    <li>one</li>-->
+<!--    <li class="special">two</li>-->
+<!--    <li>three</li>-->
+<!--    <li>-->
+<!--        <ul class="sublist">-->
+<!--            <li>1</li>-->
+<!--            <li>2</li>-->
+<!--            <li>3</li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--</ul>-->
+<!--<style>-->
+<!--    .special {-->
+<!--        color: deepskyblue;-->
+<!--    }-->
+<!--</style>-->
+<!--<script>-->
+<!--    $(function () {-->
+<!--        $('li').on('click', function () {-->
+<!--//            $(this).siblings().hide();//with .siblings it will remove all except choose li-->
+<!--            $(this).removeClass('special');-->
+<!--            $(this).siblings().addClass('special');-->
+<!--        })-->
+<!--    });-->
+<!--</script>-->
+<!--Tab panel widget-------------------------------------->
+<div class="tab-panels">
+    <ul class="tabs">
+        <li rel="panel1" class="active">panel1</li>
+        <li rel="panel2">panel2</li>
+        <li rel="panel3">panel3</li>
+    </ul>
+    <div id="panel1" class="panel active">
+        content1<br/>
+        content1<br/>
+        content1<br/>
+        content1<br/>
+        content1<br/>
+    </div>
+    <div id="panel2" class="panel">
+        content2<br/>
+        content2<br/>
+        content2<br/>
+        content2<br/>
+        content2<br/>
+    </div>
+    <div id="panel3" class="panel">
+        content3<br/>
+        content3<br/>
+        content3<br/>
+        content3<br/>
+        content3<br/>
+    </div>
+</div>
+<div class="tab-panels">
+    <ul class="tabs">
+        <li rel="panel4" class="active">panel4</li>
+        <li rel="panel5">panel5</li
+    </ul>
+    <div id="panel4" class="panel active">
+        content4<br/>
+        content4<br/>
+        content4<br/>
+        content4<br/>
+        content4<br/>
+    </div>
+    <div id="panel5" class="panel">
+        content5<br/>
+        content5<br/>
+        content5<br/>
+        content5<br/>
+        content5<br/>
+    </div>
+</div>
 <style>
-    .special {
-        color: deepskyblue;
+    ul.tabs>li {
+        display: inline-block;
+    }
+    li.active {
+        color: red;
+    }
+    .panel {
+        display: none;
+    }
+    .panel.active {
+        display: block;
+        color: red;
     }
 </style>
 <script>
     $(function () {
-        $('li').on('click', function () {
-//            $(this).siblings().hide();//with .siblings it will remove all except choose li
-            $(this).removeClass('special');
-            $(this).siblings().addClass('special');
-        })
+
+        $(".tab-panels .tabs li").on('click', function () {
+            //if we have more than one similar panels
+            var panel = $(this).closest('.tab-panels');
+
+            //switching active class to tabs
+            panel.find(".tabs li.active").removeClass('active');
+            $(this).addClass('active');
+            //figure out which panel to show
+            var panelToShow= $(this).attr('rel');
+
+            //hide current panel
+            panel.find(".panel.active").slideUp(300, function () {
+                $(this).removeClass('active');
+
+                $("#"+panelToShow).slideDown(300, function () {
+                    $(this).addClass('active');
+                });
+            });
+            //show new panel
+        });
     });
 </script>
 
