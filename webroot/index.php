@@ -11,6 +11,7 @@
 <!--    <script src="arrays.js" type="text/javascript"></script>-->
 <!--    <script src="loops.js" type="text/javascript"></script>-->
     <script src="js/jquery.js"></script>
+    <script src="js/slider.js"></script>
 <!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
 </head>
 <body>
@@ -134,94 +135,164 @@
 <!--    });-->
 <!--</script>-->
 <!--Tab panel widget-------------------------------------->
-<div class="tab-panels">
-    <ul class="tabs">
-        <li rel="panel1" class="active">panel1</li>
-        <li rel="panel2">panel2</li>
-        <li rel="panel3">panel3</li>
-    </ul>
-    <div id="panel1" class="panel active">
-        content1<br/>
-        content1<br/>
-        content1<br/>
-        content1<br/>
-        content1<br/>
-    </div>
-    <div id="panel2" class="panel">
-        content2<br/>
-        content2<br/>
-        content2<br/>
-        content2<br/>
-        content2<br/>
-    </div>
-    <div id="panel3" class="panel">
-        content3<br/>
-        content3<br/>
-        content3<br/>
-        content3<br/>
-        content3<br/>
-    </div>
+<!--<div class="tab-panels">-->
+<!--    <ul class="tabs">-->
+<!--        <li rel="panel1" class="active">panel1</li>-->
+<!--        <li rel="panel2">panel2</li>-->
+<!--        <li rel="panel3">panel3</li>-->
+<!--    </ul>-->
+<!--    <div id="panel1" class="panel active">-->
+<!--        content1<br/>-->
+<!--        content1<br/>-->
+<!--        content1<br/>-->
+<!--        content1<br/>-->
+<!--        content1<br/>-->
+<!--    </div>-->
+<!--    <div id="panel2" class="panel">-->
+<!--        content2<br/>-->
+<!--        content2<br/>-->
+<!--        content2<br/>-->
+<!--        content2<br/>-->
+<!--        content2<br/>-->
+<!--    </div>-->
+<!--    <div id="panel3" class="panel">-->
+<!--        content3<br/>-->
+<!--        content3<br/>-->
+<!--        content3<br/>-->
+<!--        content3<br/>-->
+<!--        content3<br/>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="tab-panels">-->
+<!--    <ul class="tabs">-->
+<!--        <li rel="panel4" class="active">panel4</li>-->
+<!--        <li rel="panel5">panel5</li-->
+<!--    </ul>-->
+<!--    <div id="panel4" class="panel active">-->
+<!--        content4<br/>-->
+<!--        content4<br/>-->
+<!--        content4<br/>-->
+<!--        content4<br/>-->
+<!--        content4<br/>-->
+<!--    </div>-->
+<!--    <div id="panel5" class="panel">-->
+<!--        content5<br/>-->
+<!--        content5<br/>-->
+<!--        content5<br/>-->
+<!--        content5<br/>-->
+<!--        content5<br/>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<style>-->
+<!--    ul.tabs>li {-->
+<!--        display: inline-block;-->
+<!--    }-->
+<!--    li.active {-->
+<!--        color: red;-->
+<!--    }-->
+<!--    .panel {-->
+<!--        display: none;-->
+<!--    }-->
+<!--    .panel.active {-->
+<!--        display: block;-->
+<!--        color: red;-->
+<!--    }-->
+<!--</style>-->
+<!--<script>-->
+<!--    $(function () {-->
+<!---->
+<!--        $(".tab-panels .tabs li").on('click', function () {-->
+<!--            //if we have more than one similar panels-->
+<!--            var panel = $(this).closest('.tab-panels');-->
+<!---->
+<!--            //switching active class to tabs-->
+<!--            panel.find(".tabs li.active").removeClass('active');-->
+<!--            $(this).addClass('active');-->
+<!--            //figure out which panel to show-->
+<!--            var panelToShow= $(this).attr('rel');-->
+<!---->
+<!--            //hide current panel-->
+<!--            panel.find(".panel.active").slideUp(300, function () {-->
+<!--                $(this).removeClass('active');-->
+<!---->
+<!--                $("#"+panelToShow).slideDown(300, function () {-->
+<!--                    $(this).addClass('active');-->
+<!--                });-->
+<!--            });-->
+<!--            //show new panel-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+<!--JQuery Image Slider--------------------------------------------->
+
+<div id="slider">
+        <ul class="slides">
+            <li class="slide slide1">
+                <img src="slides/slide1.jpg" />
+            </li>
+            <li class="slide slide2">
+                <img src="slides/slide2.jpg" />
+            </li>
+            <li class="slide slide3">
+                <img src="slides/slide3.jpg" />
+            </li>
+            <li class="slide slide4">
+                <img src="slides/slide4.jpg" />
+            </li>
+            <li class="slide slide5">
+                <img src="slides/slide5.jpg" />
+                <p>Winter slide5</p
+            </li>
+            <li class="slide slide1">
+                <img src="slides/slide1.jpg" />
+            </li>
+        </ul>
 </div>
-<div class="tab-panels">
-    <ul class="tabs">
-        <li rel="panel4" class="active">panel4</li>
-        <li rel="panel5">panel5</li
-    </ul>
-    <div id="panel4" class="panel active">
-        content4<br/>
-        content4<br/>
-        content4<br/>
-        content4<br/>
-        content4<br/>
-    </div>
-    <div id="panel5" class="panel">
-        content5<br/>
-        content5<br/>
-        content5<br/>
-        content5<br/>
-        content5<br/>
-    </div>
-</div>
+
 <style>
-    ul.tabs>li {
-        display: inline-block;
+    #slider {
+        width: 720px;
+        height: 400px;
+        overflow: hidden;
     }
-    li.active {
-        color: red;
-    }
-    .panel {
-        display: none;
-    }
-    .panel.active {
+    #slider .slides {
         display: block;
-        color: red;
+        width: 6000px;
+        height: 400px;
+        margin: 0;
+        padding: 0;
+    }
+    #slider .slide {
+        float: left;
+        list-style-type: none;
+        width: 720px;
+        height: 400px;
+    }
+    .slide img {
+        width: 100%;
     }
 </style>
 <script>
-    $(function () {
-
-        $(".tab-panels .tabs li").on('click', function () {
-            //if we have more than one similar panels
-            var panel = $(this).closest('.tab-panels');
-
-            //switching active class to tabs
-            panel.find(".tabs li.active").removeClass('active');
-            $(this).addClass('active');
-            //figure out which panel to show
-            var panelToShow= $(this).attr('rel');
-
-            //hide current panel
-            panel.find(".panel.active").slideUp(300, function () {
-                $(this).removeClass('active');
-
-                $("#"+panelToShow).slideDown(300, function () {
-                    $(this).addClass('active');
-                });
-            });
-            //show new panel
-        });
-    });
+//    'use strict';
+//    $(function () {
+//        //configuration
+//        var width = 720;
+//        var animationSpeed = 1000;
+//        var pause = 3000;
+//        //cache DOM
+//        var $slider = $('#slider');
+//       //setInterval
+//        setInterval(function () {
+//            $('#slider .slides').animate({'margin-left': '-='+width}, animationSpeed);
+//        },pause);
+//       //animate margin-left
+//       //if it's last slide go to position 1
+//        //listen for mouseenter and pouse
+//        //resume on mouseleave
+//    });
 </script>
+
 
 
 </body>
